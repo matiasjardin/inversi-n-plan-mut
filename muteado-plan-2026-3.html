@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muteado — Plan Operativo 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --violet: #7c3aed;
+      --violet-light: #ede9fe;
+      --black: #000000;
+      --white: #ffffff;
+      --gray: #f9fafb;
+      --gray-mid: #6b7280;
+      --border: 2px solid #000;
+      --shadow-hover: 6px 6px 0 #000;
+      --max: 1200px;
+      --header-h: 60px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--header-h);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--black);
+      border-bottom: 3px solid var(--violet);
+      padding: 0 24px;
+      height: var(--header-h);
+    }
+
+    .header-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      gap: 12px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .header-sep {
+      width: 1px;
+      height: 20px;
+      background: #444;
+    }
+
+    .header-subtitle {
+      font-size: 0.65rem;
+      color: #a78bfa;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    nav { display: flex; gap: 2px; }
+
+    nav a {
+      color: #d1d5db;
+      text-decoration: none;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 2px;
+      transition: color 0.15s, background 0.15s;
+    }
+
+    nav a:hover {
+      color: var(--white);
+      background: var(--violet);
+    }
+
+    /* ── SECTIONS ── */
+    .section-inner { max-width: var(--max); margin: 0 auto; }
+
+    section { padding: 100px 24px; }
+    section.white { background: var(--white); }
+    section.gray  { background: var(--gray); }
+    section.dark  { background: var(--black); color: var(--white); }
+
+    /* ── H2 ── */
+    h2 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 48px;
+      line-height: 1.1;
+    }
+
+    h2 .accent { color: var(--violet); }
+    h2 .underline-violet {
+      text-decoration: underline;
+      text-decoration-color: var(--violet);
+      text-underline-offset: 6px;
+    }
+
+    /* ── HERO ── */
+    #hero { padding: 120px 24px 100px; }
+    .hero-inner { max-width: var(--max); margin: 0 auto; }
+
+    .hero-h1 {
+      font-size: clamp(2.6rem, 6.5vw, 4.4rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 28px;
+      max-width: 820px;
+      text-transform: uppercase;
+    }
+
+    .hero-h1 .violet { color: var(--violet); }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: #374151;
+      max-width: 640px;
+      font-weight: 400;
+      line-height: 1.75;
+      border-left: 3px solid var(--violet);
+      padding-left: 20px;
+    }
+
+    /* ── OBJETIVOS ── */
+    .objetivos-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      max-width: 860px;
+    }
+
+    .objetivos-list li {
+      display: flex;
+      gap: 16px;
+      font-size: 0.97rem;
+      line-height: 1.75;
+      color: #1f2937;
+    }
+
+    .dash {
+      color: var(--violet);
+      font-weight: 900;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ── COMO ── */
+    .como-text { max-width: 860px; margin-bottom: 56px; }
+
+    .como-text p {
+      font-size: 0.97rem;
+      line-height: 1.8;
+      color: #1f2937;
+      margin-bottom: 16px;
+    }
+    .como-text p:last-child { margin-bottom: 0; }
+
+    /* ── CARDS ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: var(--white);
+      border: var(--border);
+      padding: 32px 28px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card.violet-card {
+      background: var(--violet);
+      border-color: var(--violet);
+      color: var(--white);
+    }
+
+    .card-title {
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      color: var(--violet);
+    }
+
+    .card.violet-card .card-title { color: rgba(255,255,255,0.7); }
+
+    .card-body {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      font-weight: 500;
+    }
+
+    /* ── TOGGLE DIRECTOR ── */
+    .toggle-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 48px;
+      padding: 18px 24px;
+      border: var(--border);
+      background: var(--white);
+      max-width: 540px;
+      flex-wrap: wrap;
+    }
+
+    .toggle-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      flex: 1;
+      min-width: 160px;
+    }
+
+    .toggle-label span {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      color: var(--gray-mid);
+      text-transform: none;
+      margin-top: 2px;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 26px;
+      flex-shrink: 0;
+    }
+
+    .switch input { opacity: 0; width: 0; height: 0; }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #d1d5db;
+      border: 2px solid #000;
+      transition: background 0.2s;
+    }
+
+    .slider::before {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      left: 3px;
+      bottom: 3px;
+      background: #000;
+      transition: transform 0.2s;
+    }
+
+    .switch input:checked + .slider { background: var(--violet); }
+    .switch input:checked + .slider::before {
+      transform: translateX(22px);
+      background: var(--white);
+    }
+
+    .toggle-badge {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border: 1px solid #d1d5db;
+      color: var(--gray-mid);
+      white-space: nowrap;
+      transition: all 0.2s;
+      cursor: default;
+    }
+
+    .toggle-badge.active {
+      border-color: var(--violet);
+      color: var(--violet);
+      background: var(--violet-light);
+    }
+
+    /* ── BIG NUMBERS ── */
+    .bignums-section {
+      margin-bottom: 56px;
+    }
+
+    .bignums-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 640px) {
+      .bignums-row { grid-template-columns: 1fr; }
+    }
+
+    .bignums-col-label {
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+    }
+
+    .bignums-col-label.optima-lbl {
+      color: var(--black);
+      border-bottom: 2px solid var(--black);
+    }
+
+    .bignums-col-label.reducida-lbl {
+      color: var(--violet);
+      border-bottom: 2px solid var(--violet);
+    }
+
+    .bignums-grid-inner {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 480px) {
+      .bignums-grid-inner { grid-template-columns: 1fr; }
+    }
+
+    .bignum-card {
+      border: var(--border);
+      padding: 24px 22px;
+      background: var(--white);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .bignum-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .bignum-label {
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+      margin-bottom: 10px;
+    }
+
+    .bignum-value {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      transition: all 0.2s;
+    }
+
+    .bignum-value.violet { color: var(--violet); }
+
+    /* ── CUADRO HEADER ── */
+    .cuadro-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 24px;
+      margin-top: 56px;
+      padding-bottom: 12px;
+      border-bottom: var(--border);
+    }
+
+    .cuadro-header:first-of-type { margin-top: 0; }
+
+    .cuadro-title {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .cuadro-tag {
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border: 1px solid var(--black);
+      color: var(--black);
+    }
+
+    .cuadro-tag.reducida-tag {
+      border-color: var(--violet);
+      color: var(--violet);
+      background: var(--violet-light);
+    }
+
+    /* ── TABLA ── */
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border: var(--border);
+      margin-bottom: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+      min-width: 900px;
+    }
+
+    thead tr {
+      background: #111;
+      color: var(--white);
+      border-bottom: 3px solid var(--violet);
+    }
+
+    thead th {
+      padding: 14px 16px;
+      text-align: left;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    thead th:first-child { min-width: 290px; }
+    thead th:not(:first-child) { text-align: right; }
+
+    tbody tr { border-bottom: 1px solid #e5e7eb; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:not(.section-header):not(.subtotal):not(.total-row):hover { background: #faf5ff; }
+
+    tbody tr.subtotal {
+      background: #f5f3ff;
+      font-weight: 700;
+      border-top: 2px solid var(--violet);
+      border-bottom: 2px solid var(--violet);
+    }
+
+    tbody tr.total-row {
+      background: var(--black);
+      color: var(--white);
+      font-weight: 800;
+      font-size: 0.85rem;
+      border-top: 3px solid var(--violet);
+    }
+
+    tbody tr.section-header {
+      background: #1f2937;
+      color: var(--white);
+    }
+
+    tbody tr.section-header td {
+      padding: 10px 16px;
+      font-size: 0.58rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #a78bfa;
+    }
+
+    td {
+      padding: 12px 16px;
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    td:not(:first-child) {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .highlight { color: var(--violet); font-weight: 700; }
+
+    tr.dimmed td { color: #bbb; }
+    tr.dimmed { background: #fafafa !important; }
+
+    /* ── IMPORTANTE ── */
+    .importante-text { max-width: 800px; }
+
+    .importante-text p {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: #d1d5db;
+      margin-bottom: 20px;
+    }
+    .importante-text p:last-child { margin-bottom: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      border-top: 3px solid var(--violet);
+      padding: 32px 24px;
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-text {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #6b7280;
+    }
+
+    .footer-link {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--violet);
+      text-decoration: none;
+      border: 2px solid var(--violet);
+      padding: 7px 18px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .footer-link:hover {
+      background: var(--violet);
+      color: var(--white);
+    }
+
+    @media (max-width: 640px) {
+      section { padding: 72px 20px; }
+      nav a { font-size: 0.58rem; padding: 5px 8px; }
+      .header-sep, .header-subtitle { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="header-inner">
+    <div class="header-left">
+      <a href="#hero" class="logo">Muteado</a>
+      <div class="header-sep"></div>
+      <span class="header-subtitle">Plan Operativo</span>
+    </div>
+    <nav>
+      <a href="#objetivos">Objetivos</a>
+      <a href="#como">Cómo</a>
+      <a href="#costos">Costos</a>
+      <a href="#importante">Importante</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ── HERO ── -->
+<section id="hero" class="white">
+  <div class="hero-inner">
+    <h1 class="hero-h1">Plan operativo<br>de <span class="violet">Muteado</span></h1>
+    <p class="hero-sub">Resumen del esquema para operar desde el lunes 2 de marzo y escalar territorio hasta fin de año.</p>
+  </div>
+</section>
+
+<!-- ── OBJETIVOS ── -->
+<section id="objetivos" class="white">
+  <div class="section-inner">
+    <h2><span class="accent">Objetivos</span></h2>
+    <ul class="objetivos-list">
+      <li>
+        <span class="dash">—</span>
+        <span>Consolidar el stream con dos productos (programas) que representen a la perfección la identidad de Muteado. No queremos "salir al aire": queremos instalar una manera de leer la agenda y una forma propia de comunicar.</span>
+      </li>
+      <li>
+        <span class="dash">—</span>
+        <span>Impulsarnos con la señal de radio como un impulso estratégico: frecuencia, presencia y legitimidad. No lo pensamos solo como alcance, lo pensamos como palanca para empujar el sistema completo.</span>
+      </li>
+      <li>
+        <span class="dash">—</span>
+        <span>Crecer fuera de Salta con presencia real en otras provincias y consolidarnos como un medio que piensa más allá de las fronteras. Territorio no es un extra: es el esquema que nos permite llegar al año electoral 2027 con red, capacidad instalada y calle en más de una provincia, para aprovechar ese calendario al máximo.</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── CÓMO ── -->
+<section id="como" class="gray">
+  <div class="section-inner">
+    <h2><span class="accent">¿Cómo lo vamos a hacer?</span></h2>
+    <div class="como-text">
+      <p>A partir del lunes 2 de marzo, vamos a operar Muteado con dos áreas bien claras —Estudio y Territorio— sostenidas por una base de Fijos generales.</p>
+      <p>Estudio arranca operativo desde el 2 de marzo con dos programas de 2 horas, de lunes a viernes: uno a la mañana y otro a la tarde. Cada programa necesita 2 conductores, 1 productor, 1 operador y 1 clipero (solo clipero para cubrir los dos programas)</p>
+      <p>En conducción estoy contemplando 4 conductores (2 por programa) con un acuerdo de $300.000 por persona por mes. Además, durante los primeros 6 meses, cada conductor se queda con el 100% de la publicidad que venda él mismo. Para la tarde estoy considerando a Juanchi Lamas y Agustina Dupont (todavía no confirmados). Para la mañana estoy considerando a Rosario Mendieta y me falta definir quién la acompaña. El operador para los dos programas va a ser Camilo y cobra $300.000 por mes. Los productores son 2 y cobran $250.000 cada uno (Aun no tenemos). El clipero es 1 y cobra $300.000.</p>
+      <p>Territorio es el sistema de expansión provincial. Arrancamos en marzo con 1 RPL en Salta Capital (Franco Murga) y sumamos 1 RPL por mes: en abril Jujuy, mayo Tucumán, junio Córdoba, julio Buenos Aires, agosto Chubut, septiembre Neuquén, octubre Mendoza, noviembre La Rioja. Diciembre mantiene la misma estructura que noviembre. Cada RPL cobra $300.000, por eso el costo de Territorio escala mes a mes hasta llegar a 9 RPL desde noviembre.</p>
+      <p>Para que Territorio no sea solo presencia sino producción real, desde marzo el rol de CM de virales + edición extra para los RPL lo cubre Katerina Anze por $300.000 por mes, y se mantiene durante todo el año. A partir de julio sumamos una persona más para hacer la misma función y duplicar productividad, agregando $300.000 mensuales desde julio en adelante.</p>
+      <p>Fijos generales concentra la estructura mínima que sostiene todo: alquiler ($800.000), expensas ($220.000), luz ($150.000), limpieza ($100.000), agua ($20.000), alquiler de la señal de radio ($600.000) y sueldo del Director General ($3.000.000).</p>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-title">Estudio</div>
+        <div class="card-body">2 programas / 4 conductores / 2 productores / 1 operador / 1 clipero</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Territorio</div>
+        <div class="card-body">1 RPL en Mar → 9 RPL en Nov/Dic / 1 CM+Edición todo el año / +1 refuerzo desde Jul</div>
+      </div>
+      <div class="card violet-card">
+        <div class="card-title">Fijos generales</div>
+        <div class="card-body">alquiler + servicios + radio + Director General</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COSTOS ── -->
+<section id="costos" class="white">
+  <div class="section-inner">
+    <h2><span class="accent">Cuadro de costos fijos</span> (Mar–Dic)</h2>
+
+    <!-- Toggle Director General — único, afecta ambos cuadros -->
+    <div class="toggle-wrap">
+      <div class="toggle-label">
+        Sueldo Director General
+        <span>Incluir o excluir en ambos cuadros ($3.000.000/mes)</span>
+      </div>
+      <span class="toggle-badge active" id="toggleBadge">Incluido</span>
+      <label class="switch">
+        <input type="checkbox" id="directorToggle" checked />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <!-- ── BIG NUMBERS: ÓPTIMA vs REDUCIDA ── -->
+    <div class="bignums-section">
+      <div class="bignums-row">
+        <!-- Óptima -->
+        <div>
+          <div class="bignums-col-label optima-lbl">Inversión Óptima</div>
+          <div class="bignums-grid-inner">
+            <div class="bignum-card">
+              <div class="bignum-label">Total Marzo</div>
+              <div class="bignum-value" id="bn-opt-mar">—</div>
+            </div>
+            <div class="bignum-card">
+              <div class="bignum-label">Total Nov / Dic</div>
+              <div class="bignum-value violet" id="bn-opt-nov">—</div>
+            </div>
+          </div>
+        </div>
+        <!-- Reducida -->
+        <div>
+          <div class="bignums-col-label reducida-lbl">Inversión Reducida</div>
+          <div class="bignums-grid-inner">
+            <div class="bignum-card">
+              <div class="bignum-label">Total Marzo</div>
+              <div class="bignum-value" id="bn-red-mar">—</div>
+            </div>
+            <div class="bignum-card">
+              <div class="bignum-label">Total Nov / Dic</div>
+              <div class="bignum-value violet" id="bn-red-nov">—</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════
+         CUADRO 1: ÓPTIMA
+    ═══════════════════════════════════════ -->
+    <div class="cuadro-header">
+      <span class="cuadro-title">Inversión</span>
+      <span class="cuadro-tag">Óptima</span>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Concepto</th>
+            <th>Mar</th><th>Abr</th><th>May</th><th>Jun</th>
+            <th>Jul</th><th>Ago</th><th>Sep</th><th>Oct</th>
+            <th>Nov</th><th>Dic</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="section-header"><td colspan="11">Territorio</td></tr>
+          <tr>
+            <td>RPL (cantidad)</td>
+            <td>1</td><td>2</td><td>3</td><td>4</td>
+            <td>5</td><td>6</td><td>7</td><td>8</td>
+            <td>9</td><td>9</td>
+          </tr>
+          <tr>
+            <td>RPL ($)</td>
+            <td>300.000</td><td>600.000</td><td>900.000</td><td>1.200.000</td>
+            <td>1.500.000</td><td>1.800.000</td><td>2.100.000</td><td>2.400.000</td>
+            <td>2.700.000</td><td>2.700.000</td>
+          </tr>
+          <tr>
+            <td>CM Virales + Edición RPL — 1 persona ($)</td>
+            <td>300.000</td><td>300.000</td><td>300.000</td><td>300.000</td>
+            <td>300.000</td><td>300.000</td><td>300.000</td><td>300.000</td>
+            <td>300.000</td><td>300.000</td>
+          </tr>
+          <tr>
+            <td>CM Virales + Edición RPL — adicional (desde Jul) ($)</td>
+            <td>—</td><td>—</td><td>—</td><td>—</td>
+            <td>300.000</td><td>300.000</td><td>300.000</td><td>300.000</td>
+            <td>300.000</td><td>300.000</td>
+          </tr>
+          <tr class="subtotal">
+            <td>Territorio – Subtotal</td>
+            <td>600.000</td><td>900.000</td><td>1.200.000</td><td>1.500.000</td>
+            <td>2.100.000</td><td>2.400.000</td><td>2.700.000</td><td>3.000.000</td>
+            <td>3.300.000</td><td>3.300.000</td>
+          </tr>
+
+          <tr class="section-header"><td colspan="11">Estudio</td></tr>
+          <tr>
+            <td>Conductores (4) ($)</td>
+            <td>1.200.000</td><td>1.200.000</td><td>1.200.000</td><td>1.200.000</td>
+            <td>1.200.000</td><td>1.200.000</td><td>1.200.000</td><td>1.200.000</td>
+            <td>1.200.000</td><td>1.200.000</td>
+          </tr>
+          <tr>
+            <td>Operador (1) ($)</td>
+            <td>300.000</td><td>300.000</td><td>300.000</td><td>300.000</td>
+            <td>300.000</td><td>300.000</td><td>300.000</td><td>300.000</td>
+            <td>300.000</td><td>300.000</td>
+          </tr>
+          <tr>
+            <td>Productores (2) ($)</td>
+            <td>500.000</td><td>500.000</td><td>500.000</td><td>500.000</td>
+            <td>500.000</td><td>500.000</td><td>500.000</td><td>500.000</td>
+            <td>500.000</td><td>500.000</td>
+          </tr>
+          <tr>
+            <td>Clipero (1) ($)</td>
+            <td>300.000</td><td>300.000</td><td>300.000</td><td>300.000</td>
+            <td>300.000</td><td>300.000</td><td>300.000</td><td>300.000</td>
+            <td>300.000</td><td>300.000</td>
+          </tr>
+          <tr class="subtotal">
+            <td>Estudio – Subtotal</td>
+            <td>2.300.000</td><td>2.300.000</td><td>2.300.000</td><td>2.300.000</td>
+            <td>2.300.000</td><td>2.300.000</td><td>2.300.000</td><td>2.300.000</td>
+            <td>2.300.000</td><td>2.300.000</td>
+          </tr>
+
+          <tr class="section-header"><td colspan="11">Fijos generales</td></tr>
+          <tr>
+            <td>Alquiler ($)</td>
+            <td>800.000</td><td>800.000</td><td>800.000</td><td>800.000</td>
+            <td>800.000</td><td>800.000</td><td>800.000</td><td>800.000</td>
+            <td>800.000</td><td>800.000</td>
+          </tr>
+          <tr>
+            <td>Expensas ($)</td>
+            <td>220.000</td><td>220.000</td><td>220.000</td><td>220.000</td>
+            <td>220.000</td><td>220.000</td><td>220.000</td><td>220.000</td>
+            <td>220.000</td><td>220.000</td>
+          </tr>
+          <tr>
+            <td>Luz ($)</td>
+            <td>150.000</td><td>150.000</td><td>150.000</td><td>150.000</td>
+            <td>150.000</td><td>150.000</td><td>150.000</td><td>150.000</td>
+            <td>150.000</td><td>150.000</td>
+          </tr>
+          <tr>
+            <td>Limpieza ($)</td>
+            <td>100.000</td><td>100.000</td><td>100.000</td><td>100.000</td>
+            <td>100.000</td><td>100.000</td><td>100.000</td><td>100.000</td>
+            <td>100.000</td><td>100.000</td>
+          </tr>
+          <tr>
+            <td>Agua ($)</td>
+            <td>20.000</td><td>20.000</td><td>20.000</td><td>20.000</td>
+            <td>20.000</td><td>20.000</td><td>20.000</td><td>20.000</td>
+            <td>20.000</td><td>20.000</td>
+          </tr>
+          <tr>
+            <td>Alquiler señal de radio ($)</td>
+            <td>600.000</td><td>600.000</td><td>600.000</td><td>600.000</td>
+            <td>600.000</td><td>600.000</td><td>600.000</td><td>600.000</td>
+            <td>600.000</td><td>600.000</td>
+          </tr>
+          <tr id="opt-rowDirector">
+            <td>Director General ($)</td>
+            <td>3.000.000</td><td>3.000.000</td><td>3.000.000</td><td>3.000.000</td>
+            <td>3.000.000</td><td>3.000.000</td><td>3.000.000</td><td>3.000.000</td>
+            <td>3.000.000</td><td>3.000.000</td>
+          </tr>
+          <tr class="subtotal">
+            <td>Fijos generales – Subtotal</td>
+            <td id="opt-fs0"></td><td id="opt-fs1"></td><td id="opt-fs2"></td><td id="opt-fs3"></td>
+            <td id="opt-fs4"></td><td id="opt-fs5"></td><td id="opt-fs6"></td><td id="opt-fs7"></td>
+            <td id="opt-fs8"></td><td id="opt-fs9"></td>
+          </tr>
+          <tr class="total-row">
+            <td>TOTAL Muteado — Inversión Óptima ($)</td>
+            <td id="opt-t0"></td><td id="opt-t1"></td><td id="opt-t2"></td><td id="opt-t3"></td>
+            <td id="opt-t4"></td><td id="opt-t5"></td><td id="opt-t6"></td><td id="opt-t7"></td>
+            <td id="opt-t8"></td><td id="opt-t9"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ════════════════════════════════════
+         CUADRO 2: REDUCIDA
+    ═══════════════════════════════════════ -->
+    <div class="cuadro-header">
+      <span class="cuadro-title">Inversión</span>
+      <span class="cuadro-tag reducida-tag">Reducida</span>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Concepto</th>
+            <th>Mar</th><th>Abr</th><th>May</th><th>Jun</th>
+            <th>Jul</th><th>Ago</th><th>Sep</th><th>Oct</th>
+            <th>Nov</th><th>Dic</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="section-header"><td colspan="11">Territorio</td></tr>
+          <tr>
+            <td>RPL (cantidad)</td>
+            <td>1</td><td>1</td><td>2</td><td>2</td>
+            <td>3</td><td>3</td><td>4</td><td>4</td>
+            <td>5</td><td>5</td>
+          </tr>
+          <tr>
+            <td>RPL ($)</td>
+            <td>300.000</td><td>300.000</td><td>600.000</td><td>600.000</td>
+            <td>900.000</td><td>900.000</td><td>1.200.000</td><td>1.200.000</td>
+            <td>1.500.000</td><td>1.500.000</td>
+          </tr>
+          <tr>
+            <td>CM Virales + Edición RPL — 1 persona ($)</td>
+            <td>300.000</td><td>300.000</td><td>300.000</td><td>300.000</td>
+            <td>300.000</td><td>300.000</td><td>300.000</td><td>300.000</td>
+            <td>300.000</td><td>300.000</td>
+          </tr>
+          <tr>
+            <td>CM Virales + Edición RPL — adicional (desde Jul) ($)</td>
+            <td>—</td><td>—</td><td>—</td><td>—</td>
+            <td>300.000</td><td>300.000</td><td>300.000</td><td>300.000</td>
+            <td>300.000</td><td>300.000</td>
+          </tr>
+          <tr class="subtotal">
+            <td>Territorio – Subtotal</td>
+            <td>600.000</td><td>600.000</td><td>900.000</td><td>900.000</td>
+            <td>1.500.000</td><td>1.500.000</td><td>1.800.000</td><td>1.800.000</td>
+            <td>2.100.000</td><td>2.100.000</td>
+          </tr>
+
+          <tr class="section-header"><td colspan="11">Estudio — Mar/Abr: 1 programa (tarde) · desde May: 2 programas</td></tr>
+          <tr>
+            <td>Conductores ($)</td>
+            <td>600.000</td><td>600.000</td><td>1.200.000</td><td>1.200.000</td>
+            <td>1.200.000</td><td>1.200.000</td><td>1.200.000</td><td>1.200.000</td>
+            <td>1.200.000</td><td>1.200.000</td>
+          </tr>
+          <tr>
+            <td>Operador (1) ($)</td>
+            <td>300.000</td><td>300.000</td><td>300.000</td><td>300.000</td>
+            <td>300.000</td><td>300.000</td><td>300.000</td><td>300.000</td>
+            <td>300.000</td><td>300.000</td>
+          </tr>
+          <tr>
+            <td>Productores ($)</td>
+            <td>250.000</td><td>250.000</td><td>500.000</td><td>500.000</td>
+            <td>500.000</td><td>500.000</td><td>500.000</td><td>500.000</td>
+            <td>500.000</td><td>500.000</td>
+          </tr>
+          <tr>
+            <td>Clipero (1) ($)</td>
+            <td>300.000</td><td>300.000</td><td>300.000</td><td>300.000</td>
+            <td>300.000</td><td>300.000</td><td>300.000</td><td>300.000</td>
+            <td>300.000</td><td>300.000</td>
+          </tr>
+          <tr class="subtotal">
+            <td>Estudio – Subtotal</td>
+            <td>1.450.000</td><td>1.450.000</td><td>2.300.000</td><td>2.300.000</td>
+            <td>2.300.000</td><td>2.300.000</td><td>2.300.000</td><td>2.300.000</td>
+            <td>2.300.000</td><td>2.300.000</td>
+          </tr>
+
+          <tr class="section-header"><td colspan="11">Fijos generales</td></tr>
+          <tr>
+            <td>Alquiler ($)</td>
+            <td>800.000</td><td>800.000</td><td>800.000</td><td>800.000</td>
+            <td>800.000</td><td>800.000</td><td>800.000</td><td>800.000</td>
+            <td>800.000</td><td>800.000</td>
+          </tr>
+          <tr>
+            <td>Expensas ($)</td>
+            <td>220.000</td><td>220.000</td><td>220.000</td><td>220.000</td>
+            <td>220.000</td><td>220.000</td><td>220.000</td><td>220.000</td>
+            <td>220.000</td><td>220.000</td>
+          </tr>
+          <tr>
+            <td>Luz ($)</td>
+            <td>150.000</td><td>150.000</td><td>150.000</td><td>150.000</td>
+            <td>150.000</td><td>150.000</td><td>150.000</td><td>150.000</td>
+            <td>150.000</td><td>150.000</td>
+          </tr>
+          <tr>
+            <td>Limpieza ($)</td>
+            <td>100.000</td><td>100.000</td><td>100.000</td><td>100.000</td>
+            <td>100.000</td><td>100.000</td><td>100.000</td><td>100.000</td>
+            <td>100.000</td><td>100.000</td>
+          </tr>
+          <tr>
+            <td>Agua ($)</td>
+            <td>20.000</td><td>20.000</td><td>20.000</td><td>20.000</td>
+            <td>20.000</td><td>20.000</td><td>20.000</td><td>20.000</td>
+            <td>20.000</td><td>20.000</td>
+          </tr>
+          <tr>
+            <td>Alquiler señal de radio ($)</td>
+            <td>600.000</td><td>600.000</td><td>600.000</td><td>600.000</td>
+            <td>600.000</td><td>600.000</td><td>600.000</td><td>600.000</td>
+            <td>600.000</td><td>600.000</td>
+          </tr>
+          <tr id="red-rowDirector">
+            <td>Director General ($)</td>
+            <td>3.000.000</td><td>3.000.000</td><td>3.000.000</td><td>3.000.000</td>
+            <td>3.000.000</td><td>3.000.000</td><td>3.000.000</td><td>3.000.000</td>
+            <td>3.000.000</td><td>3.000.000</td>
+          </tr>
+          <tr class="subtotal">
+            <td>Fijos generales – Subtotal</td>
+            <td id="red-fs0"></td><td id="red-fs1"></td><td id="red-fs2"></td><td id="red-fs3"></td>
+            <td id="red-fs4"></td><td id="red-fs5"></td><td id="red-fs6"></td><td id="red-fs7"></td>
+            <td id="red-fs8"></td><td id="red-fs9"></td>
+          </tr>
+          <tr class="total-row">
+            <td>TOTAL Muteado — Inversión Reducida ($)</td>
+            <td id="red-t0"></td><td id="red-t1"></td><td id="red-t2"></td><td id="red-t3"></td>
+            <td id="red-t4"></td><td id="red-t5"></td><td id="red-t6"></td><td id="red-t7"></td>
+            <td id="red-t8"></td><td id="red-t9"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── IMPORTANTE ── -->
+<section id="importante" class="dark">
+  <div class="section-inner">
+    <h2><span class="underline-violet">Importante</span></h2>
+    <div class="importante-text">
+      <p>El crecimiento de Muteado depende directamente de la inversión. Esto es un proyecto nuevo y si lo medimos con la vara del corto plazo, lo vamos a achicar antes de que madure.</p>
+      <p>Por eso, mi propuesta es tener paciencia y sostener un horizonte: darnos 10 meses más con este esquema para ejecutar, producir, corregir y ordenar, y recién ahí evaluar una reestructuración de costos con datos reales.</p>
+      <p>Si limitamos el crecimiento únicamente a la cantidad de acuerdos que cerremos mes a mes, Muteado va a crecer, pero no al tamaño ni a la velocidad que necesitamos para capitalizar de verdad el 2027. Para jugar ese año, tenemos que llegar con estructura.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-text">Muteado — Plan operativo y costos fijos — 2026</span>
+    <a href="#hero" class="footer-link">Volver arriba ↑</a>
+  </div>
+</footer>
+
+<script>
+  // ─────────────────────────────────────────
+  // DATA
+  // ─────────────────────────────────────────
+
+  // ÓPTIMA
+  const opt_terr  = [600000, 900000, 1200000, 1500000, 2100000, 2400000, 2700000, 3000000, 3300000, 3300000];
+  const opt_estud = [2300000,2300000,2300000,2300000,2300000,2300000,2300000,2300000,2300000,2300000];
+
+  // REDUCIDA
+  const red_terr  = [600000, 600000, 900000, 900000, 1500000, 1500000, 1800000, 1800000, 2100000, 2100000];
+  const red_estud = [1450000,1450000,2300000,2300000,2300000,2300000,2300000,2300000,2300000,2300000];
+
+  // Fijos base (sin director): igual en ambos
+  const FIJOS_BASE = 1890000;
+  const DIRECTOR   = 3000000;
+
+  // ─────────────────────────────────────────
+  // FORMAT: 3000000 → "3.000.000"
+  // ─────────────────────────────────────────
+  function fmt(n) {
+    return n.toLocaleString('de-DE', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  }
+
+  // ─────────────────────────────────────────
+  // UPDATE
+  // ─────────────────────────────────────────
+  function updateAll(includeDir) {
+    const dirVal = includeDir ? DIRECTOR : 0;
+    const fijos  = FIJOS_BASE + dirVal;
+
+    // ── ÓPTIMA ──
+    for (let i = 0; i < 10; i++) {
+      const total = opt_terr[i] + opt_estud[i] + fijos;
+      document.getElementById('opt-fs' + i).textContent = fmt(fijos);
+      document.getElementById('opt-t'  + i).textContent = fmt(total);
+    }
+
+    // ── REDUCIDA ──
+    for (let i = 0; i < 10; i++) {
+      const total = red_terr[i] + red_estud[i] + fijos;
+      document.getElementById('red-fs' + i).textContent = fmt(fijos);
+      document.getElementById('red-t'  + i).textContent = fmt(total);
+    }
+
+    // ── BIG NUMBERS ──
+    // Óptima: Mar (idx 0), Nov (idx 8)
+    const opt_mar = opt_terr[0] + opt_estud[0] + fijos;
+    const opt_nov = opt_terr[8] + opt_estud[8] + fijos;
+    document.getElementById('bn-opt-mar').textContent = '$' + fmt(opt_mar);
+    document.getElementById('bn-opt-nov').textContent = '$' + fmt(opt_nov);
+
+    // Reducida: Mar (idx 0), Nov (idx 8)
+    const red_mar = red_terr[0] + red_estud[0] + fijos;
+    const red_nov = red_terr[8] + red_estud[8] + fijos;
+    document.getElementById('bn-red-mar').textContent = '$' + fmt(red_mar);
+    document.getElementById('bn-red-nov').textContent = '$' + fmt(red_nov);
+
+    // ── DIRECTOR ROWS dim/active ──
+    const optDir = document.getElementById('opt-rowDirector');
+    const redDir = document.getElementById('red-rowDirector');
+    const badge  = document.getElementById('toggleBadge');
+
+    if (includeDir) {
+      optDir.classList.remove('dimmed');
+      redDir.classList.remove('dimmed');
+      badge.textContent = 'Incluido';
+      badge.classList.add('active');
+    } else {
+      optDir.classList.add('dimmed');
+      redDir.classList.add('dimmed');
+      badge.textContent = 'Excluido';
+      badge.classList.remove('active');
+    }
+  }
+
+  // ─────────────────────────────────────────
+  // INIT
+  // ─────────────────────────────────────────
+  const toggle = document.getElementById('directorToggle');
+  toggle.addEventListener('change', () => updateAll(toggle.checked));
+  updateAll(true);
+</script>
+</body>
+</html>
